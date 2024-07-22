@@ -1,13 +1,44 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+// import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+// import Counter from "./Counter";
+
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import LoginPage from "./pages/login";
+import RegisterPage from "./pages/register";
+import ErrorPage from "./pages/404";
+import ProductPage from "./pages/products";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <>Hy</>,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/login",
+    element: <LoginPage />,
+  },
+  {
+    path: "/register",
+    element: <RegisterPage />,
+  },
+  {
+    path: "/products",
+    element: <ProductPage />,
+  },
+]);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <Counter /> */}
+    {/* <App /> */}
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
